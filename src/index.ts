@@ -3,29 +3,28 @@ import { property, customElement } from 'lit/decorators.js';
 
 import { Referee } from './helper/referee.js';
 
-import './common/cell.js';
+import { TicTacToeCell } from './common/cell.js';
 import './common/modalDialog.js';
 
 import { Game } from './model/game.js';
 
 @customElement('tic-tac-toe')
 class TicTacToe extends LitElement {
-
   static styles = css`
-      :host {
-        --board-bg-color: #e5d6c2;
-      }
-      .board {
-        width: 540px;
-        height: 540px;
-        padding: 20px;
-        background: var(--board-bg-color);
-        display: flex;
-        flex-wrap: wrap;
-        align-content: space-between;
-        justify-content: space-between;
-        border-radius: 13px;
-      }
+    :host {
+      --board-bg-color: #e5d6c2;
+    }
+    .board {
+      width: 540px;
+      height: 540px;
+      padding: 20px;
+      background: var(--board-bg-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      justify-content: space-between;
+      border-radius: 13px;
+    }
   `;
 
   @property({ type: Object }) game?: Game;
@@ -37,59 +36,68 @@ class TicTacToe extends LitElement {
 
     this.addEventListener('player-win', (e: Event) => {
       const modal = this.shadowRoot?.querySelector('modal-dialog');
-      if(modal){
-          modal.open = true;
-          modal.title = 'Congratulations 🎉';
-          modal.text = `Player ${(e as CustomEvent).detail.player} has won!`;
+      if (modal) {
+        modal.open = true;
+        modal.title = 'Congratulations 🎉';
+        modal.text = `Player ${(e as CustomEvent).detail.player} has won!`;
       }
     });
 
     this.addEventListener('tie', () => {
       const modal = this.shadowRoot?.querySelector('modal-dialog');
-      if(modal){
-          modal.open = true;
-          modal.title = 'mmh';
-          modal.text = `It seems i'ts a tie 🤨`;
+      if (modal) {
+        modal.open = true;
+        modal.title = 'mmh';
+        modal.text = `It seems i'ts a tie 🤨`;
       }
     });
   }
 
   initGame() {
-    if(this.game){
-        this.game.board = [
-            [0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]
-          ];
-        this.game.turn = 1;
-        this.game.currentPlayer = 1;
-        this.game.plays = { 1: 0, 2: 0 };
+    if (this.game) {
+      this.game.board = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+      ];
+      this.game.turn = 1;
+      this.game.currentPlayer = 1;
+      this.game.plays = { 1: 0, 2: 0 };
     }
   }
 
   _handleClick(e: Event) {
-    if (this.game?.board[e.target.row][e.target.col] !== 0) {
+    if (
+      this.game?.board[(e.target as TicTacToeCell).row][
+        (e.target as TicTacToeCell).col
+      ] !== 0
+    ) {
       return;
     }
 
-    e.target.symbol = this.game?.currentPlayer === 1 ? 'cross' : 'circle';
+    (e.target as TicTacToeCell).symbol =
+      this.game?.currentPlayer === 1 ? 'cross' : 'circle';
 
-    this.game.board[e.target.row][e.target.col] = this.game?.currentPlayer;
-    this.game.plays[this.game.currentPlayer]+=1;
+    this.game.board[(e.target as TicTacToeCell).row][
+      (e.target as TicTacToeCell).col
+    ] = this.game?.currentPlayer;
+    this.game.plays[this.game.currentPlayer] += 1;
     if (Referee.checkVictory(this.game?.currentPlayer)) {
       setTimeout(() => {
-        this.dispatchEvent(new CustomEvent('player-win', {
-          detail: {
-            player: this.game?.currentPlayer
-          }
-        }));
-      }, 500)
+        this.dispatchEvent(
+          new CustomEvent('player-win', {
+            detail: {
+              player: this.game?.currentPlayer,
+            },
+          })
+        );
+      }, 500);
     } else if (this.game?.plays[1] + this.game?.plays[2] === 9) {
       setTimeout(() => {
         this.dispatchEvent(new CustomEvent('tie'));
       }, 500);
     } else {
-      this.game?.turn+=1;
+      this.game.turn += 1;
       this.changePlayer();
     }
   }
@@ -101,13 +109,14 @@ class TicTacToe extends LitElement {
 
   _resetTiles() {
     const children = this.shadowRoot?.querySelectorAll('tic-tac-toe-cell');
-    children?.forEach(cell => {
-      cell.symbol = '';
+    children?.forEach((cell: TicTacToeCell) => {
+      const square = cell;
+      square.symbol = '';
     });
   }
 
   changePlayer() {
-    if(this.game){
+    if (this.game) {
       this.game.currentPlayer = this.game?.currentPlayer === 1 ? 2 : 1;
     }
   }
@@ -183,19 +192,20 @@ class TicTacToe extends LitElement {
 
   render() {
     return html`
-    <modal-dialog @button-click="${this._resetGame}"></modal-dialog>
-    <div class="board">
+      <modal-dialog @button-click="${this._resetGame}"></modal-dialog>
+      <div class="board">
         ${this.game?.board.map((row, rowIndex) =>
-          row.map((_col: any, colIndex: number) =>
-            html`
-              <tic-tac-toe-cell
-                .symbol=''
+          row.map(
+            (_col: any, colIndex: number) =>
+              html` <tic-tac-toe-cell
+                .symbol=""
                 .col=${colIndex}
                 .row=${rowIndex}
                 @click="${this._handleClick}"
               >
               </tic-tac-toe-cell>`
-          ))}
+          )
+        )}
       </div>
     `;
   }
@@ -203,6 +213,6 @@ class TicTacToe extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "tic-tac-toe": TicTacToe,
+    'tic-tac-toe': TicTacToe;
   }
 }

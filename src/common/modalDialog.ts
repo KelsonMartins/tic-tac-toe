@@ -1,10 +1,9 @@
 import { html, css, LitElement } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
-import { classMap } from "lit-html/directives/class-map";
+import { classMap } from 'lit-html/directives/class-map';
 
 @customElement('modal-dialog')
 export class ModalDialog extends LitElement {
-
   @property({ type: Boolean })
   open = false;
 
@@ -72,7 +71,8 @@ export class ModalDialog extends LitElement {
         text-decoration: none;
         display: inline-block;
         margin-top: 10px;
-      }`;
+      }
+    `;
   }
 
   _handleClose() {
@@ -102,6 +102,6 @@ export class ModalDialog extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "modal-dialog": ModalDialog,
+    'modal-dialog': ModalDialog;
   }
 }

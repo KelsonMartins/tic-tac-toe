@@ -1,5 +1,4 @@
 export class Referee {
-
   checkHorizontal(player: Number): Boolean {
     for (let row = 0; row < this.game?.board.length; row += 1) {
       let count = 0;
@@ -37,8 +36,12 @@ export class Referee {
   }
 
   checkDiagonal(player: Number): Boolean {
-    let count = 0
-    for (let row = 0, col = 0; row < this.game?.board.length; row += 1, col += 1) {
+    let count = 0;
+    for (
+      let row = 0, col = 0;
+      row < this.game?.board.length;
+      row += 1, col += 1
+    ) {
       if (this.game?.board[row][col] === player) {
         count += 1;
       } else {
@@ -49,8 +52,11 @@ export class Referee {
       }
     }
     count = 0;
-    for (let row = 0, col = this.game?.board.length - 1;
-      row < this.game?.board.length; row += 1, col -= 1) {
+    for (
+      let row = 0, col = this.game?.board.length - 1;
+      row < this.game?.board.length;
+      row += 1, col -= 1
+    ) {
       if (this.game?.board[row][col] === player) {
         count += 1;
       } else {
@@ -64,8 +70,10 @@ export class Referee {
   }
 
   checkVictory(player: Number): Boolean {
-    return this.checkHorizontal(player)
-      || this.checkVertical(player)
-      || this.checkDiagonal(player);
+    return (
+      this.checkHorizontal(player) ||
+      this.checkVertical(player) ||
+      this.checkDiagonal(player)
+    );
   }
 }

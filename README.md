@@ -6,8 +6,10 @@ A simple yet fun, classic tic-tac-toe webcomponent, built with lit-element and t
 
 ## TODO
 
-- [ ] Refactor `referee.ts` helper;
 - [ ] Fix remaining ts errors;
+- [ ] Refactor `referee.ts` helper;
+- [ ] Add Cypress and Setup tests: [setup test with Cypress](https://www.thisdot.co/blog/testing-web-components-with-cypress-and-typescript)
+- https://lit.dev/docs/
 
 ## Installation
 

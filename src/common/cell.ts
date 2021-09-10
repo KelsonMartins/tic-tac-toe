@@ -3,7 +3,6 @@ import { property, customElement } from 'lit/decorators.js';
 
 @customElement('tic-tac-toe-cell')
 export class TicTacToeCell extends LitElement {
-
   @property({ type: String })
   symbol = '';
 
@@ -31,7 +30,7 @@ export class TicTacToeCell extends LitElement {
         justify-content: center;
       }
       .cross {
-        background:  rgb(71, 69, 78);
+        background: rgb(71, 69, 78);
         height: 100px;
         position: relative;
         width: 10px;
@@ -39,8 +38,8 @@ export class TicTacToeCell extends LitElement {
         border-radius: 30px;
       }
       .cross:after {
-        background:  rgb(71, 69, 78);
-        content: "";
+        background: rgb(71, 69, 78);
+        content: '';
         height: 10px;
         left: -45px;
         position: absolute;
@@ -59,14 +58,12 @@ export class TicTacToeCell extends LitElement {
   }
 
   render() {
-    return html`
-      <div class="${this.symbol}"></div>
-    `;
+    return html` <div class="${this.symbol}"></div> `;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "tic-tac-toe-cell": TicTacToeCell,
+    'tic-tac-toe-cell': TicTacToeCell;
   }
 }
