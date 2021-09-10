@@ -24,7 +24,7 @@
     "lit-html": "^1.4.1"
   },
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@custom-elements-manifest/analyzer": "^0.5.3",
     "@open-wc/eslint-config": "^4.3.0",
     "@open-wc/testing": "next",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
