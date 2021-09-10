@@ -4,7 +4,10 @@ A simple yet fun, classic tic-tac-toe webcomponent, built with lit-element and t
 
 > This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
+## TODO
 
+- [ ] Refactor `referee.ts` helper;
+- [ ] Fix remaining ts errors;
 
 ## Installation
 
