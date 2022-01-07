@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "lit": "^2.1.0",
-    "lit-html": "^2.1.0"
+    "lit-html": "^2.1.1"
   },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "^0.5.7",
