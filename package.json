@@ -20,7 +20,7 @@
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
   },
   "dependencies": {
-    "lit": "^2.1.3",
+    "lit": "^2.2.1",
     "lit-html": "^2.1.3"
   },
   "devDependencies": {
