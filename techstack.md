@@ -32,7 +32,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [KelsonMartins/tic-tac-toe](https://github.com/KelsonMartins/tic-tac-toe)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|17<br/>Tools used|12/03/23 <br/>Report generated|
+|19<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -132,9 +132,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (7)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (9)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (7)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (9)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -143,6 +143,8 @@ Full tech stack [here](/techstack.md)
 |[@typescript-eslint/parser](https://www.npmjs.com/@typescript-eslint/parser)|v4.33.0|02/14/22|dependabot[bot] |BSD-2-Clause|N/A|
 |[concurrently](https://www.npmjs.com/concurrently)|v7.0.0|01/03/22|dependabot[bot] |MIT|N/A|
 |[eslint-config-prettier](https://www.npmjs.com/eslint-config-prettier)|v8.3.0|02/14/22|dependabot[bot] |MIT|N/A|
+|[husky](https://www.npmjs.com/husky)|v7.0.4|11/29/21|dependabot[bot] |MIT|N/A|
+|[lint-staged](https://www.npmjs.com/lint-staged)|v12.3.4|02/14/22|dependabot[bot] |MIT|N/A|
 |[lit-html](https://www.npmjs.com/lit-html)|v2.1.3|02/10/22|dependabot[bot] |BSD-3-Clause|N/A|
 |[tslib](https://www.npmjs.com/tslib)|v1.14.1|09/10/21|Kelson Martins |0BSD|N/A|
 
