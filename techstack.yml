@@ -2,7 +2,7 @@ repo_name: KelsonMartins/tic-tac-toe
 report_id: fc6c0f562400e3127ece6d9f6c8b6352
 version: 0.1
 repo_type: Public
-timestamp: '2024-01-05T08:29:10+00:00'
+timestamp: '2024-02-29T18:57:56+00:00'
 requested_by: KelsonMartins
 provider: github
 branch: main
@@ -66,7 +66,7 @@ tools:
   last_updated_by: Facundo'Yala
   last_updated_on: 2021-09-10 15:58:45.000000000 Z
 - name: Prettier
-  description: 'Prettier is an opinionated code formatter. '
+  description: Prettier is an opinionated code formatter.
   website_url: https://prettier.io/
   version: 2.5.1
   license: MIT
